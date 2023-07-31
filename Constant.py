@@ -10,8 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800 #800
+SCREEN_HEIGHT = 600 #600
+
+WALL_HEIGHT = 15 #100
+WALL_SPEED = 15 #5
+
+BALL_ANGLE = 0.4 #0.03
+BALL_ACC = 1.1 # 1.05
+
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)

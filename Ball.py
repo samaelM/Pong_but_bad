@@ -39,8 +39,8 @@ class Ball():
         self.y += self.sy
         self.rect = pygame.draw.rect(screen, WHITE, (self.x, self.y, self.h, self.h))
         if self.rect.colliderect(p):
-            self.s = -self.s * 1.05
-            self.sy = abs(self.x + (self.h)//2 - p.x + (p.y)//2) * 0.1
-        if self.rect.colliderect(a):
-            self.s = -self.s * 1.05
-            self.sy = (self.x + (self.h)//2 - a.x + (a.y)//2) * -0.1
+            self.s = -self.s * BALL_ACC
+            self.sy = -((self.y + (self.h)//2) - (p.y + (p.h)//2)) * BALL_ANGLE
+        elif self.rect.colliderect(a):
+            self.s = -self.s * BALL_ACC
+            self.sy = -((self.y + (self.h)//2) - (a.y + (a.h)//2)) * BALL_ANGLE
