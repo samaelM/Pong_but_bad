@@ -13,8 +13,10 @@
 import pygame
 from Constant import *
 
-class Wall():
+
+class Wall:
     def __init__(self, x, y, height, width, speed):
+        self.rect = None
         self.x = x
         self.y = y
         self.h = height
@@ -27,9 +29,11 @@ class Wall():
         self.rect = pygame.draw.rect(screen, WHITE, (self.x, self.y, self.w, self.h))
 
     def ai_update(self, screen, ball):
-        if ((self.y + (self.h)//2) + self.speed > (ball.y + (ball.h)//2)) and ((self.y + (self.h)//2) > (ball.y + (ball.h)//2)):
+        if ((self.y + self.h // 2) + self.speed > (ball.y + ball.h // 2)) and (
+                (self.y + self.h // 2) > (ball.y + ball.h // 2)):
             self.y -= self.speed
-        elif ((self.y + (self.h)//2) + self.speed < (ball.y + (ball.h)//2)) and ((self.y + (self.h)//2) < (ball.y + (ball.h)//2)):
+        elif ((self.y + self.h // 2) + self.speed < (ball.y + ball.h // 2)) and (
+                (self.y + self.h // 2) < (ball.y + ball.h // 2)):
             self.y += self.speed
         self.y = max(0, min(self.y, SCREEN_HEIGHT - self.h))
         self.rect = pygame.draw.rect(screen, WHITE, (self.x, self.y, self.w, self.h))

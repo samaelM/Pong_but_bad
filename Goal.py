@@ -11,18 +11,19 @@
 # **************************************************************************** #
 
 import pygame
-from Constant import *
 
-class Goal():
-    def __init__(self, x, y, h, w, wall, color):
+
+class Goal:
+    def __init__(self, x, h, w, wall, color):
+        self.rect = None
         self.x = x
-        self.y = y
         self.h = h
         self.w = w
         self.wall = wall
         self.c = color
+
     def update(self, screen, ball):
-        self.rect = pygame.draw.rect(screen, self.c, (self.x, self.y, self.w, self.h))
+        self.rect = pygame.draw.rect(screen, self.c, (self.x, 0, self.w, self.h))
         if self.rect.colliderect(ball.rect):
             self.wall.score += 1
             ball.reset()

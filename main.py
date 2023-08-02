@@ -21,11 +21,11 @@ pygame.font.init()
 font = pygame.font.Font(None, 36)
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-player = Wall(20, 100, WALL_HEIGHT, 10, WALL_SPEED)
-ai = Wall(770, 100, WALL_HEIGHT, 10, 5)
-gp = Goal(SCREEN_WIDTH-10, 0, SCREEN_HEIGHT, 10, player, GREEN)
-ga = Goal(0, 0, SCREEN_HEIGHT, 10, ai, RED)
-ball = Ball(100, 100, 10, 6)
+player = Wall(2 * BALL_HEIGHT, (SCREEN_HEIGHT // 2) - (WALL_HEIGHT // 2), WALL_HEIGHT, BALL_HEIGHT, WALL_SPEED)
+ai = Wall(SCREEN_WIDTH - 3 * BALL_HEIGHT, (SCREEN_HEIGHT // 2) - (WALL_HEIGHT // 2), WALL_HEIGHT, BALL_HEIGHT, 5)
+gp = Goal(SCREEN_WIDTH - BALL_HEIGHT, SCREEN_HEIGHT, BALL_HEIGHT, player, GREEN)
+ga = Goal(0, SCREEN_HEIGHT, BALL_HEIGHT, ai, RED)
+ball = Ball(3 * BALL_HEIGHT, player.y + (player.h // 2), BALL_HEIGHT, BALL_SPEED)
 while True:
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
