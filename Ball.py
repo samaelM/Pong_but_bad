@@ -28,6 +28,9 @@ class Ball:
         self.h = h
 
     def reset(self):
+        """
+        reset the position and speed of the ball
+        """
         self.x = self.ox
         self.y = self.oy
         self.s = self.os
